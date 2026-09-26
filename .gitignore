@@ -3,3 +3,9 @@ output/
 *.pkl
 __pycache__/
 src/matching/model_artifacts/
+
+# Competition dataset — do not push
+dataset/
+
+# Windows junk
+*.lnk
