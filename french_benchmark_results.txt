@@ -1,0 +1,33 @@
+======================================================================
+15 REAL FRENCH PAIRS (BEFORE/AFTER NORMALIZATION)
+======================================================================
+
+[Pair 01]
+  S1 name raw : Profession & Frères SARL
+  S1 name norm: profession freres
+  S2 name raw : profession & frères sarl
+  S2 name norm: profession freres
+  S1 addr raw : 198 rue du Bois, 59800 LILLE, Lille, Hauts-de-France
+  S1 addr norm: 198 r du bois 59800 lille lille hdf
+  S2 addr raw : 198 R DU BOIS, 59800 LILLE, LILLE, Nord
+  S2 addr norm: 198 r du bois 59800 lille lille hdf
+
+======================================================================
+BENCHMARK: 100,000 REAL ROWS (US, INDIA, FRANCE)
+======================================================================
+Loading trinational slice...
+Total benchmark rows: 79,067
+Distribution: US=36,118, India=27,949, France=15,000
+
+Warmup (1,000 rows)...
+Done.
+
+Benchmarking 79,067 trinational rows...
+  Elapsed: 5.51s
+  Throughput: 14,357 rows/sec (0.070 ms/row)
+
+Extrapolation to 12.5M corpus:
+  Estimated time: 873s = 14.5 minutes
+  [PASS] Target < 60 minutes met with 4.1x headroom!
+
+Results written to d:\projects\amazon\french_benchmark_results.txt

@@ -1,0 +1,123 @@
+======================================================================
+BEFORE / AFTER: KEY EXAMPLES FROM EDA
+======================================================================
+
+[Pair 1 US typo+abbrev]
+  NAME  raw: 'Davis Family Offie'
+  NAME  norm: 'davis family offie'
+  ADDR  raw: '88 OLIVE CIR, LEBANON, TN'
+  ADDR  norm: '88 olive cir lebanon tn'
+
+[Pair 2 India corp stripped + ALL-CAPS]
+  NAME  raw: 'MS [Consultancy]'
+  NAME  norm: 'ms consultancy'
+  ADDR  raw: 'SHYMALA APPTS 1-1ST FLOOR FLAT NO. 4 OPP RATNA HOSPITAL SB ROAD IN HAVELI, PUNE, Maharashtra'
+  ADDR  norm: 'shymala appts 1 1 4 ratna hospital sb rd in haveli pune mh'
+
+[Pair 3 US state full vs abbrev + reorder]
+  NAME  raw: '3520 MAIN ROAD Realty INC'
+  NAME  norm: '3520 main road realty'
+  ADDR  raw: '158 Simpson Lane, Somerset, Texas'
+  ADDR  norm: '158 simpson ln somerset tx'
+
+[Pair 4 India Telugu script state]
+  NAME  raw: 'Thg Air Pvt. Ltd.'
+  NAME  norm: 'thg air'
+  ADDR  raw: 'FLAT NO:101, -POOL, HYDERABAD, తెలంగాణ'
+  ADDR  norm: '101 pool hyderabad tlmgn'
+
+[Pair 5 US double-space + ## house no]
+  NAME  raw: 'DRAYEX  BERTO LLC'
+  NAME  norm: 'drayex berto'
+  ADDR  raw: '##19821 WHEELWRIGHT DR, MONTGOMERY VILLAGE, MD'
+  ADDR  norm: '19821 wheelwright dr montgomery village md'
+
+[Pair 6 US name reorder + state full]
+  NAME  raw: 'Grand LLC Service'
+  NAME  norm: 'grand llc service'
+  ADDR  raw: 'Illinois, Calumet City, 351- Hoxie Avenue'
+  ADDR  norm: 'il calumet city 351 hoxie ave'
+
+[Pair 7 US PLLC-PARTNERS]
+  NAME  raw: 'PRAIRIE CAPITAL PLLC-PARTNERS'
+  NAME  norm: 'prairie capital pllc partners'
+  ADDR  raw: '120. Autumn Woods Boulevard, MOUNT HOLLY, NC'
+  ADDR  norm: '120 autumn woods blvd mount holly nc'
+
+[Pair 9 India anagram+parens]
+  NAME  raw: 'Clairvoyant Rceoad Private (Limited)'
+  NAME  norm: 'clairvoyant rceoad private'
+  ADDR  raw: '1St Floor, Sehore, Madhya Pradesh, MP'
+  ADDR  norm: '1 sehore mp mp'
+
+[Pair 12 US domain as name]
+  NAME  raw: 'cardiologymetrocare.com'
+  NAME  norm: 'cardiologymetrocare'
+  ADDR  raw: '1138 TRIMBLE CREEK DRIVE, WEST JORDAN, UT'
+  ADDR  norm: '1138 trimble creek dr west jordan ut'
+
+[Pair 13 India Devanagari state]
+  NAME  raw: 'Achyut Colonisers Pvt Ltd'
+  NAME  norm: 'achyut colonisers'
+  ADDR  raw: 'House No 4/82 Madanlal Bohara Kapad Market, Kolhapur, महाराष्ट्र'
+  ADDR  norm: '4 82 madanlal bohara kapad market kolhapur mharastr'
+
+[Pair 14 India Telugu state 2]
+  NAME  raw: 'UNIQUE & SONS LIMITED SERVICE'
+  NAME  norm: 'unique sons limited service'
+  ADDR  raw: '#118 , 119 SYNO:190, IP CHANDANVELLY, RANGAREDDY, తెలంగాణ'
+  ADDR  norm: '118 119 syno 190 ip chandanvelly rangareddy tlmgn'
+
+[Pair 15 India Bengali state + 'door no']
+  NAME  raw: 'Sarasva Índia'
+  NAME  norm: 'sarasva india'
+  ADDR  raw: 'DOOR NO 9/1/3. KASUNDIA 2ND BYE LANE LP-224/24/1, SANTRAGACHI, HOWRAH, পশ্চিমবঙ্গ'
+  ADDR  norm: '9 1 3 kasundia 2 bye ln lp 224 24 1 santragachi howrah pscimbng'
+
+[Pair 18 US zero-padded + TER abbrev]
+  NAME  raw: 'LOUDOUN COUNTY CULTURAL COALITION, LLC'
+  NAME  norm: 'loudoun county cultural coalition'
+  ADDR  raw: '0044023 VAIRA TER, N/A, CHANTILLY, VA'
+  ADDR  norm: '44023 vaira ter n a chantilly va'
+
+[Pair 20 US DBA prefix + field reorder]
+  NAME  raw: 'Drexsolpyra DBA: Cornerstone Investments L.L.C.'
+  NAME  norm: 'cornerstone investments l l c'
+  ADDR  raw: 'City Of Menasha, WI, 1475 Manitowoc Road'
+  ADDR  norm: 'city of menasha wi 1475 manitowoc rd'
+
+[S2 Devanagari name (actual row)]
+  NAME  raw: 'राम मार्केटिंग प्राइवेट लिमिटेड'
+  NAME  norm: 'ram marktig praivt limitd'
+  ADDR  raw: 'KH NO. -570/13, NEW DELHI, WEST DELHI, Delhi'
+  ADDR  norm: 'kh 570 13 dl west dl dl'
+
+[S2 Devanagari name 2]
+  NAME  raw: 'आदित्य प्रॉपर्टीज एलएलपी'
+  NAME  norm: 'adity proprtij elelpi'
+  ADDR  raw: 'G-3/571, GULMOHAR COLONY, BHOPAL, Madhya Pradesh'
+  ADDR  norm: 'g 3 571 gulmohar col bhopal mp'
+
+[S3 domain name]
+  NAME  raw: 'wilfordhancock.com'
+  NAME  norm: 'wilfordhancock'
+  ADDR  raw: 'Mack Rd, Haltom City, Texas'
+  ADDR  norm: 'mack rd haltom city tx'
+
+======================================================================
+BENCHMARK: 100,000 REAL ROWS (mixed script)
+======================================================================
+
+Loading data...
+  Total rows: 100,000  (India: 40,053 = 40.1%,  US: 59,947)
+
+WARMUP: 1,000 rows...
+  Done.
+
+BENCHMARK: 100,000 rows...
+  Elapsed: 5.83s
+  Throughput: 17,139 rows/sec  (0.06 ms/row)
+
+EXTRAPOLATION TO FULL CORPUS (12,527,040 records):
+  Estimated time: 731s  = 12.2 minutes
+  ✓ PASSES TARGET: full corpus finishes in < 1 hour

@@ -1,0 +1,64 @@
+Loading datasets...
+
+Mapping matched scripts...
+Analyzing ground truth and cross-script matches...
+Total S1 entities with matches: 2,083,574
+Unique matched entities in GT: 7,638,365
+Found 7,638,365 in matched index
+
+======================================================================
+CHECK 1: NULL-ADDRESS OVERLAP IN CROSS-SCRIPT TRUE MATCH PAIRS
+======================================================================
+Total cross-script pairs: 551,240
+Matched (S2/S3) address empty: 798 (0.145%)
+S1 address empty: 0 (0.000%)
+Both addresses empty: 0 (0.000%)
+
+======================================================================
+CHECK 2: ENTITY-LEVEL CONCENTRATION OF CROSS-SCRIPT MATCHES
+======================================================================
+S1 entities with >= 1 cross-script true match: 273,136
+  - Fully cross-script-dependent (0 Latin matches): 40,636 (14.88%)
+  - Partially cross-script (>=1 Latin match exists): 232,500 (85.12%)
+
+======================================================================
+CHECK 3: VOWEL-STRIP CONSONANT-SKELETON KEY COST-BENEFIT
+======================================================================
+Computing vowel-strip keys for S1, S2, S3...
+India S1 rows: 883,188, India matched rows in GT: 3,059,843
+Evaluating candidate bucket sizes on India partition...
+Unique India matched names in GT: 2,401,097
+Distinct vowel keys (len>=3): 3,961,642
+Distinct vowel keys (len>=4): 3,954,369
+
+Candidate count distribution per S1 entity (Vowel-strip key len >= 3):
+  mean: 16.7, median: 4.0, p75: 31.0, p95: 55.0, p99: 106.0, max: 707
+  % S1 generating > 100 candidates: 1.1%
+  % S1 generating > 500 candidates: 0.0%
+
+Candidate count distribution per S1 entity (Vowel-strip key len >= 4):
+  mean: 16.1, median: 4.0, p75: 30.0, p95: 53.0, p99: 100.0, max: 707
+  % S1 generating > 100 candidates: 1.0%
+  % S1 generating > 500 candidates: 0.0%
+
+Top 10 highest-frequency vowel-strip keys (len >= 3):
+  'rnsthrt': 1,409 records
+  'mbr': 1,316 records
+  'physclthrpy': 1,314 records
+  'prmrycr': 1,240 records
+  'mrdn': 1,233 records
+  'pdtrcdntl': 1,188 records
+  'wmnshlth': 1,180 records
+  'pdtrcdntstry': 1,141 records
+  'rgntcr': 1,133 records
+  'bhvrlhlth': 1,132 records
+
+Calculating recall lift on cross-script pairs failing name-token bar...
+
+In sample of 25,000 cross-script pairs:
+  Failing name-token bar: 20,933 (83.7%)
+  Recovered by EXACT vowel-strip key (len >= 3): 87 (0.42% of failing)
+  Recovered by EXACT vowel-strip key (len >= 4): 82 (0.39% of failing)
+  Recovered by TOKEN-LEVEL consonant skeleton (token vkey >= 3): 6,853 (32.74% of failing)
+
+Done.

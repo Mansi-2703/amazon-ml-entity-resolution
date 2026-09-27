@@ -1,5 +1,6 @@
 data/
 output/
+dataset/
 *.pkl
 __pycache__/
 src/matching/model_artifacts/

@@ -1,0 +1,213 @@
+===========================================================================
+FULL-CORPUS BLOCKING EVALUATION (evaluate_blocking.py)
+===========================================================================
+Started at: 2026-09-27 02:30:43
+Initial Memory: 97.7 MB
+
+[1/5] Loading train_ground_truth.tsv ...
+  Loaded GT: 2,206,821 records, 2,206,821 mapped.
+
+[2/5] Loading train_source1.tsv and computing 80/20 split ...
+  Loaded S1 full: 2,206,821 records.
+  Validation S1 entities: 441,361 rows.
+  Memory after S1 split: 1698.6 MB
+  Total true target IDs for validation entities: 1,528,016
+
+[3/5] Indexing FULL S2 and S3 corpora (10,320,219 records) ...
+  Indexing train_source2.tsv in 250k chunks ...
+  Finished S2 (5,034,616 records) in 402.3s
+  Indexing train_source3.tsv in 250k chunks ...
+  Finished S3 (5,285,603 records) in 463.1s
+  Total reference records indexed: 10,320,219
+  Validation targets metadata captured: 1,528,016 / 1,528,016
+  Peak memory after full indexing: 7244.0 MB
+
+[4/5] Querying 441,361 S1 validation entities ...
+  Finished querying in 101.4s (4,351 queries/sec)
+  Memory after querying: 8250.7 MB
+
+[5/5] Computing detailed recall breakdowns ...
+
+===========================================================================
+1A. OVERALL PAIR & ENTITY RECALL
+===========================================================================
+  Combined Pair Recall : 1,340,999 / 1,528,016 (87.76%)
+  Source 2 Pair Recall : 652,185 / 739,586 (88.18%)
+  Source 3 Pair Recall : 688,814 / 788,430 (87.37%)
+  Entity Recall (>=1)  : 408,875 / 416,712 (98.12%)
+  Entity Recall (ALL)  : 285,297 / 416,712 (68.46%)
+
+===========================================================================
+1B. CROSS-SCRIPT RECALL BREAKDOWN
+===========================================================================
+  Cross-Script Pair Recall         : 71,240 / 109,555 (65.03%)
+  Fully-CS Entities Recall (>=1)   : 6,295 / 7,968 (79.00%)
+
+===========================================================================
+2. RECALL STRATIFIED BY COUNTRY
+===========================================================================
+  India          :  505,956 /  612,382 (82.62%)
+  US             :  835,043 /  915,634 (91.20%)
+
+===========================================================================
+3. RECALL STRATIFIED BY MATCH CARDINALITY
+===========================================================================
+  1_match        :   20,777 /   23,830 (87.19%)
+  2_3_matches    :  410,580 /  468,347 (87.67%)
+  4_plus_matches :  909,642 / 1,035,839 (87.82%)
+
+===========================================================================
+4. RECALL BY ADDRESS STATUS
+===========================================================================
+  s1_addr_present   : 1,340,999 / 1,528,016 (87.76%)
+
+===========================================================================
+5. CANDIDATE SET SIZE & REDUCTION RATIO
+===========================================================================
+  Total Candidates Emitted : 109,420,370
+  Mean Candidates / Entity : 247.9
+  Median Candidates        : 48.0
+  p75 Candidates           : 225.0
+  p95 Candidates           : 1008.0
+  p99 Candidates           : 2461.0
+  Max Candidates           : 4,670
+  Zero-Candidate S1        : 557 (0.13%)
+  Reduction Ratio          : 99.997598%
+
+===========================================================================
+6. FALLBACK TIER POPULATION & USAGE RATES
+===========================================================================
+  cross_script                  :     111 / 441,361 (0.03%)
+  used_tier2_rescue             :     471 / 441,361 (0.11%)
+  used_cross_country_fallback   :      12 / 441,361 (0.00%)
+
+===========================================================================
+7. SAMPLE 20 WORST MISSES (WITH RAW TEXT)
+===========================================================================
+[01] S1 ID: S1-629417405 | Missed Target: S2-928426462 | Country: US | CrossScript: False
+     S1 Name:     'Moore Bitwise Inc'
+     Target Name: 'Moore Inc Center'
+     S1 Address:  '337 Oakland Avenue, Michigan City, IN'
+     Target Addr: '337 OAKLAND AVE, MICHHIGAN CITY CITY, IN'
+
+[02] S1 ID: S1-796227187 | Missed Target: S3-637901841 | Country: US | CrossScript: False
+     S1 Name:     'Foot & Ankle Allied Center LLC'
+     Target Name: 'Llc Foot & Ankle Allied Center'
+     S1 Address:  '1216 Preston Avenue, Charlottesville City, VA'
+     Target Addr: 'Virginia, Charlottesville, 216 Preston Avenue'
+
+[03] S1 ID: S1-151608539 | Missed Target: S3-509257100 | Country: India | CrossScript: False
+     S1 Name:     'Orchid Renewable Ltd'
+     Target Name: 'Ltd Orchid Renewable'
+     S1 Address:  'House No.26-352, Kadavakollu Bhavanam, Bhuttaipeta, Near E.N.T Hospital, Machilipatanam, Krishna, Andhra Pradesh'
+     Target Addr: 'House No.26-352, Krishna, AP, Machilipatanam'
+
+[04] S1 ID: S1-173971969 | Missed Target: S2-292981300 | Country: India | CrossScript: True
+     S1 Name:     'Hotel It Pvt Ltd'
+     Target Name: 'होटल आईटी प्रा. लि.'
+     S1 Address:  'Kailash Bihari Singh, Cou, Po-Bhagwan, Chapra, Saran, Bihar'
+     Target Addr: 'KAILASH BIHARI SINGH, COU, PO-BHAGWAN, SARAN, CHAPRA, Bihar'
+
+[05] S1 ID: S1-557464657 | Missed Target: S2-729358614 | Country: US | CrossScript: False
+     S1 Name:     'Doiron & Alvarez Token LLC'
+     Target Name: 'Doiron & Afcvz Token LLC'
+     S1 Address:  '17607 Lake Melford Avenue, Bowie, MD'
+     Target Addr: ''
+
+[06] S1 ID: S1-557464657 | Missed Target: S3-406498606 | Country: US | CrossScript: False
+     S1 Name:     'Doiron & Alvarez Token LLC'
+     Target Name: 'LLC Doiron and Alvarez Token'
+     S1 Address:  '17607 Lake Melford Avenue, Bowie, MD'
+     Target Addr: '17226 Lake Melford Ave, Bowie, Maryland'
+
+[07] S1 ID: S1-17506850 | Missed Target: S2-398583958 | Country: India | CrossScript: True
+     S1 Name:     'Indian Industries Limited'
+     Target Name: 'इंडियन इंडस्ट्रीज लिमिटेड'
+     S1 Address:  'Ghaziabad, C-1601, Uttar Pradesh, Ghaziabad, Laxuria Estate Aditya World City'
+     Target Addr: 'C-1601, LAXURIA ESTATE ADITYA WORLD CITY, GHAZIABAD, उत्तर प्रदेश'
+
+[08] S1 ID: S1-17506850 | Missed Target: S2-254243056 | Country: India | CrossScript: False
+     S1 Name:     'Indian Industries Limited'
+     Target Name: 'INDIAN INDIAN INDUSTRIES'
+     S1 Address:  'Ghaziabad, C-1601, Uttar Pradesh, Ghaziabad, Laxuria Estate Aditya World City'
+     Target Addr: 'C-1601 , LAXURIA ESTATE ADITYA WORLD CITY, GHAZIABAD, उत्तर प्रदेश'
+
+[09] S1 ID: S1-419483044 | Missed Target: S2-708439842 | Country: US | CrossScript: False
+     S1 Name:     'King Aria LLC'
+     Target Name: 'King LLC [Partners]'
+     S1 Address:  '215 Grand Avenue, Unit Apartment 609, Old Orchard Beach, ME'
+     Target Addr: 'GRAND AVENUE, OLD ORCHARD BEACH, ME'
+
+[10] S1 ID: S1-387694500 | Missed Target: S3-9126403 | Country: India | CrossScript: True
+     S1 Name:     'Bombay Power Private Limited'
+     Target Name: 'ಬಾಂಬೆ ಪವರ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್'
+     S1 Address:  'No: 32/2, 2Nd Floor, Mcc Towers, Opp To Sigma Soft Tech Park, Whitefield Main Road, Ramagon, Danahalli, Bangalore, Karnataka'
+     Target Addr: 'No: 6-32/2, Bangalore, KA'
+
+[11] S1 ID: S1-387694500 | Missed Target: S3-77197957 | Country: India | CrossScript: False
+     S1 Name:     'Bombay Power Private Limited'
+     Target Name: 'Bombay Private Límited Center'
+     S1 Address:  'No: 32/2, 2Nd Floor, Mcc Towers, Opp To Sigma Soft Tech Park, Whitefield Main Road, Ramagon, Danahalli, Bangalore, Karnataka'
+     Target Addr: ''
+
+[12] S1 ID: S1-840279529 | Missed Target: S2-310438906 | Country: US | CrossScript: False
+     S1 Name:     'Siobhan Caswell Safe Diversified LLC'
+     Target Name: 'CSÁWELL, SIOBHAN SAFE DIVERSIFIED LLC'
+     S1 Address:  '2205 Hayes Road, Houston, TX'
+     Target Addr: 'HAYES RD, HUOSTON, TX'
+
+[13] S1 ID: S1-536948776 | Missed Target: S2-376450162 | Country: US | CrossScript: False
+     S1 Name:     'I+ Corporate Inc.'
+     Target Name: 'I+ Coporae Inc.'
+     S1 Address:  '718 94, Warwick, NY'
+     Target Addr: '718 94, PMB 8827, FLORDA, NY'
+
+[14] S1 ID: S1-363414052 | Missed Target: S3-821671998 | Country: US | CrossScript: False
+     S1 Name:     'Meify, Inc'
+     Target Name: 'Mieaiyf, Inc'
+     S1 Address:  '1202 Schreier Road, Unit B, Rossford, OH'
+     Target Addr: 'Ohio, Rossfoord, Unit B, 1202 Schreier Rd'
+
+[15] S1 ID: S1-98579303 | Missed Target: S3-690119410 | Country: India | CrossScript: True
+     S1 Name:     'Indian Technologies'
+     Target Name: 'ইন্ডিয়ান টেকনোলজিস'
+     S1 Address:  'Flat 19/1/16, Nabin Chandra Das Road, Kolkata, Kolkata, Howrah, West Bengal'
+     Target Addr: 'Flat 19/1/16, Howrah, Kolkata, WB'
+
+[16] S1 ID: S1-98579303 | Missed Target: S3-719484948 | Country: India | CrossScript: False
+     S1 Name:     'Indian Technologies'
+     Target Name: 'Indian Services'
+     S1 Address:  'Flat 19/1/16, Nabin Chandra Das Road, Kolkata, Kolkata, Howrah, West Bengal'
+     Target Addr: 'Flat 19/1/16, Kolkata, Howrah, পশ্চিমবঙ্গ'
+
+[17] S1 ID: S1-219548536 | Missed Target: S2-136041592 | Country: US | CrossScript: False
+     S1 Name:     'Dahlen Direct Muniyield'
+     Target Name: 'Dahlen Muniyield Direct'
+     S1 Address:  '215 Victoria Road, Hartford, CT'
+     Target Addr: 'HARTTFORD, CT, 00215 VICTORIA RD'
+
+[18] S1 ID: S1-219548536 | Missed Target: S3-206417184 | Country: US | CrossScript: False
+     S1 Name:     'Dahlen Direct Muniyield'
+     Target Name: 'DIRECT DAHLEN MUNIYIELD'
+     S1 Address:  '215 Victoria Road, Hartford, CT'
+     Target Addr: 'Victoria Road, Hartford, Connecticut'
+
+[19] S1 ID: S1-219548536 | Missed Target: S3-808807781 | Country: US | CrossScript: False
+     S1 Name:     'Dahlen Direct Muniyield'
+     Target Name: 'Mdunieyld Direct Dahlen'
+     S1 Address:  '215 Victoria Road, Hartford, CT'
+     Target Addr: '21 Victoria Road, Hartford, Connecticut'
+
+[20] S1 ID: S1-31205819 | Missed Target: S2-673077177 | Country: India | CrossScript: True
+     S1 Name:     'Tirupati Media Pvt Ltd'
+     Target Name: 'तिरुपति मीडिया प्रा. लि.'
+     S1 Address:  'Zeelproperties Panchkutir, Pawarwadi A S Marg Powai, Mumbai, Maharashtra'
+     Target Addr: 'ZEELPROPERTIES PANCHKUTIR, MUMBAI, महाराष्ट्र'
+
+
+===========================================================================
+8. RUNTIME & SYSTEM RESOURCE USAGE
+===========================================================================
+  Total Evaluation Runtime : 1015.6s (16.93 minutes)
+  Peak Memory RSS          : 8368.6 MB
+===========================================================================

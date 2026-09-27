@@ -1,0 +1,104 @@
+Processing train_source1.tsv (is_s1=True)...
+  Done train_source1.tsv: 1,200,000 rows.
+Processing train_source2.tsv (is_s1=False)...
+  Done train_source2.tsv: 2,100,000 rows.
+Processing train_source3.tsv (is_s1=False)...
+  Done train_source3.tsv: 2,100,000 rows.
+Processing test_source1.tsv (is_s1=True)...
+  Done test_source1.tsv: 259,452 rows.
+Processing test_source2.tsv (is_s1=False)...
+  Done test_source2.tsv: 703,378 rows.
+Processing test_source3.tsv (is_s1=False)...
+  Done test_source3.tsv: 731,615 rows.
+
+======================================================================
+1. PINCODE BUCKET SIZE DISTRIBUTION & CANDIDATE EXPLOSION RISK
+======================================================================
+
+--- COUNTRY: US ---
+Unique postal codes: 42,437
+Total S1 records with postal code: 77,990
+Total S2/S3 records with postal code: 255,823
+
+Bucket Size (Total Entities per Postal Code):
+  Mean: 7.9, Median: 3.0, p75: 9.0, p95: 31.0, p99: 59.0, Max: 152
+
+Candidate Pairs Produced if Standalone Key (|S1| * |S2+S3|):
+  TOTAL Candidate Pairs: 1,486,755
+  Mean / PC: 35.0, Median: 1.0, p95: 168.0, Max: 5,520
+
+Top 10 Largest Pincode Buckets (|S1| * |S2+S3|):
+  [01] '10300': S1=60, S2/S3=92 --> Candidates = 5,520
+  [02] '11201': S1=47, S2/S3=101 --> Candidates = 4,747
+  [03] '11100': S1=45, S2/S3=84 --> Candidates = 3,780
+  [04] '12015': S1=46, S2/S3=82 --> Candidates = 3,772
+  [05] '10200': S1=43, S2/S3=87 --> Candidates = 3,741
+  [06] '11000': S1=38, S2/S3=97 --> Candidates = 3,686
+  [07] '11500': S1=44, S2/S3=82 --> Candidates = 3,608
+  [08] '10601': S1=31, S2/S3=105 --> Candidates = 3,255
+  [09] '10101': S1=33, S2/S3=96 --> Candidates = 3,168
+  [10] '10000': S1=38, S2/S3=76 --> Candidates = 2,888
+
+No postal codes for India
+
+--- COUNTRY: France ---
+Unique postal codes: 703
+Total S1 records with postal code: 1,005
+Total S2/S3 records with postal code: 7,228
+
+Bucket Size (Total Entities per Postal Code):
+  Mean: 11.7, Median: 4.0, p75: 8.0, p95: 37.9, p99: 182.8, Max: 562
+
+Candidate Pairs Produced if Standalone Key (|S1| * |S2+S3|):
+  TOTAL Candidate Pairs: 156,629
+  Mean / PC: 222.8, Median: 0.0, p95: 20.0, Max: 52,392
+
+Top 10 Largest Pincode Buckets (|S1| * |S2+S3|):
+  [01] '59000': S1=118, S2/S3=444 --> Candidates = 52,392
+  [02] '59100': S1=80, S2/S3=292 --> Candidates = 23,360
+  [03] '59200': S1=64, S2/S3=257 --> Candidates = 16,448
+  [04] '44300': S1=58, S2/S3=210 --> Candidates = 12,180
+  [05] '59800': S1=49, S2/S3=185 --> Candidates = 9,065
+  [06] '33000': S1=47, S2/S3=178 --> Candidates = 8,366
+  [07] '62100': S1=42, S2/S3=141 --> Candidates = 5,922
+  [08] '44000': S1=39, S2/S3=150 --> Candidates = 5,850
+  [09] '44100': S1=35, S2/S3=140 --> Candidates = 4,900
+  [10] '44600': S1=33, S2/S3=136 --> Candidates = 4,488
+
+======================================================================
+2. REGION / STATE CODE BUCKET DISTRIBUTION
+======================================================================
+
+--- COUNTRY: US REGIONS ---
+Unique regions: 22
+Total candidate pairs if Region were standalone: 32,937,264,033
+Top 5 Region Buckets (|S1| * |S2+S3|):
+  [01] 'tx': S1=71,304, S2/S3=127,562 --> Candidates = 9,095,680,848
+  [02] 'ny': S1=54,749, S2/S3=97,369 --> Candidates = 5,330,855,381
+  [03] 'nc': S1=51,547, S2/S3=91,088 --> Candidates = 4,695,313,136
+  [04] 'oh': S1=46,037, S2/S3=81,956 --> Candidates = 3,773,008,372
+  [05] 'il': S1=40,125, S2/S3=72,412 --> Candidates = 2,905,531,500
+
+--- COUNTRY: India REGIONS ---
+Unique regions: 20
+Total candidate pairs if Region were standalone: 36,897,597,268
+Top 5 Region Buckets (|S1| * |S2+S3|):
+  [01] 'maharashtra': S1=102,956, S2/S3=141,814 --> Candidates = 14,600,602,184
+  [02] 'delhi': S1=66,147, S2/S3=210,729 --> Candidates = 13,939,091,163
+  [03] 'uttar pradesh': S1=39,264, S2/S3=54,801 --> Candidates = 2,151,706,464
+  [04] 'karnataka': S1=38,084, S2/S3=52,557 --> Candidates = 2,001,580,788
+  [05] 'tamil nadu': S1=34,277, S2/S3=46,827 --> Candidates = 1,605,089,079
+
+--- COUNTRY: France REGIONS ---
+Unique regions: 6
+Total candidate pairs if Region were standalone: 9,803,795,203
+Top 5 Region Buckets (|S1| * |S2+S3|):
+  [01] 'pays de la loire': S1=72,718, S2/S3=134,274 --> Candidates = 9,764,136,732
+  [02] 'nord': S1=200, S2/S3=151,627 --> Candidates = 30,325,400
+  [03] 'gironde': S1=62, S2/S3=150,533 --> Candidates = 9,333,046
+  [04] 'nouvelle aquitaine': S1=2, S2/S3=8 --> Candidates = 16
+  [05] 'bre': S1=1, S2/S3=6 --> Candidates = 6
+
+======================================================================
+3. SAMPLE PAIRS IN TOP PINCODE BUCKETS (MATCH PLAUSIBILITY CHECK)
+======================================================================

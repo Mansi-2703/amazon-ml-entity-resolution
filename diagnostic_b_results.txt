@@ -1,0 +1,24 @@
+======================================================================
+DIAGNOSTIC B: EMBEDDING COMPUTE FEASIBILITY
+======================================================================
+1. HARDWARE SPECS:
+   CPU: 16 logical cores
+   RAM: 15.73 GB total, 6.93 GB available
+   torch.cuda.is_available(): False
+   GPU: NONE (Running CPU-only)
+
+2. PROPOSED MODEL:
+   Name: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+   License: Apache-2.0
+   Supported Scripts: Latin, Devanagari, Telugu, Bengali, Tamil, etc. (50+ languages natively)
+   Parameter count: 117,653,760 (117.7M params)  [Constraint: <= 8B]
+   Embedding dimension: 384
+   Model load time: 8.23s
+   PyTorch active CPU threads: 12
+
+3. SAMPLING 20,000 STRINGS (from S1, S2, S3)...
+   Collected 20,000 sample texts.
+   Sample text 0: Orelee's Barbershop 1795 Westchester Drive, High Point, NC...
+   Sample text 10000: राम मार्केटिंग प्राइवेट लिमिटेड KH NO. -570/13, NEW DELHI, WEST DELHI, Delhi...
+
+   Starting encoding benchmark of 20,000 records on CPU (in 4 chunks of 5,000)...

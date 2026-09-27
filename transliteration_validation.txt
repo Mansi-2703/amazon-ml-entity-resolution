@@ -1,0 +1,305 @@
+Loading datasets...
+  S1: 2,206,821  S2: 5,034,616  S3: 5,285,603  GT rows: 2,206,821
+
+Vectorised script detection on S1 names...
+  S1 script distribution:
+script
+LATIN    2206821
+  S1 LATIN entities: 2,206,821
+
+Expanding GT pairs (explode)...
+  Total flat pairs: 7,638,365
+  Flat pairs with S1=LATIN: 7,638,365
+
+Vectorised script detection on matched entity names...
+  Unique matched IDs to classify: 7,638,365
+  Matched script distribution:
+script
+LATIN         7087110
+DEVANAGARI     312725
+TELUGU          45620
+KANNADA         43379
+TAMIL           39252
+BENGALI         35910
+GUJARATI        35819
+MALAYALAM       21930
+ODIA             8681
+GURMUKHI         7924
+EMPTY              15
+
+Filtering to cross-script pairs...
+  Cross-script pairs (S1=LATIN, matched=INDIC): 551,240
+  By matched script:
+m_script
+DEVANAGARI    312725
+TELUGU         45620
+KANNADA        43379
+TAMIL          39252
+BENGALI        35910
+GUJARATI       35819
+MALAYALAM      21930
+ODIA            8681
+GURMUKHI        7924
+
+Pulling raw text for cross pairs...
+  Cross pairs with data: 551,240
+
+Normalizing names and addresses (vectorised map)...
+  Done.
+
+Computing similarity scores...
+  Done.
+
+======================================================================
+SIMILARITY DISTRIBUTION — ALL CROSS-SCRIPT PAIRS
+======================================================================
+
+  Name Token Jaccard:
+    n=551,240  median=0.000  p25=0.000  p75=0.000
+    mean=0.048  min=0.000  max=1.000
+
+  Name Trigram Dice:
+    n=551,240  median=0.160  p25=0.069  p75=0.267
+    mean=0.191  min=0.000  max=1.000
+
+  Addr Token Jaccard:
+    n=551,240  median=0.800  p25=0.500  p75=1.000
+    mean=0.722  min=0.000  max=1.000
+
+  Addr Trigram Dice:
+    n=551,240  median=0.884  p25=0.611  p75=0.955
+    mean=0.776  min=0.000  max=1.000
+
+  BLOCKING BAR (>=1 significant shared token, len>=3, not all-digit):
+    Pass NAME bar:   90,087/551,240 = 16.3%
+    Pass ADDR bar:   543,941/551,240 = 98.7%
+    Pass EITHER bar: 545,824/551,240 = 99.0%
+    Pass BOTH bars:  88,204/551,240 = 16.0%
+
+======================================================================
+PER-SCRIPT BREAKDOWN
+======================================================================
+
+  BENGALI  (n=35,910)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.786  p25=0.571  p75=1.000
+    Pass name bar: 6807/35910 = 19.0%
+    Pass addr bar: 35715/35910 = 99.5%
+
+  DEVANAGARI  (n=312,725)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.800  p25=0.500  p75=1.000
+    Pass name bar: 55745/312725 = 17.8%
+    Pass addr bar: 307120/312725 = 98.2%
+
+  GUJARATI  (n=35,819)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.800  p25=0.455  p75=1.000
+    Pass name bar: 6705/35819 = 18.7%
+    Pass addr bar: 35576/35819 = 99.3%
+
+  GURMUKHI  (n=7,924)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.800  p25=0.556  p75=1.000
+    Pass name bar: 1267/7924 = 16.0%
+    Pass addr bar: 7903/7924 = 99.7%
+
+  KANNADA  (n=43,379)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.778  p25=0.429  p75=1.000
+    Pass name bar: 5899/43379 = 13.6%
+    Pass addr bar: 42945/43379 = 99.0%
+
+  MALAYALAM  (n=21,930)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.750  p25=0.500  p75=0.923
+    Pass name bar: 2835/21930 = 12.9%
+    Pass addr bar: 21835/21930 = 99.6%
+
+  ODIA  (n=8,681)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.727  p25=0.500  p75=0.900
+    Pass name bar: 1514/8681 = 17.4%
+    Pass addr bar: 8635/8681 = 99.5%
+
+  TAMIL  (n=39,252)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.778  p25=0.500  p75=1.000
+    Pass name bar: 6025/39252 = 15.3%
+    Pass addr bar: 38959/39252 = 99.3%
+
+  TELUGU  (n=45,620)
+    name_jacc  median=0.000  p25=0.000  p75=0.000
+    addr_jacc  median=0.750  p25=0.455  p75=1.000
+    Pass name bar: 3290/45620 = 7.2%
+    Pass addr bar: 45253/45620 = 99.2%
+
+======================================================================
+15 WORST-SCORING PAIRS (lowest name_jacc, then addr_jacc)
+======================================================================
+
+  [01] script=TELUGU  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Shakti Royal Construction Private Limited
+    S1 name NORM: shakti royal construction
+    M  name RAW : శక్తి రాయల్ కన్‌స్ట్రక్షన్ ప్రైవేట్ లిమిటెడ్
+    M  name NORM: skt ryl knstrksn prvt lmtd
+    S1 addr RAW : 4Th Floor, Sai Plaza, Mig 1366, Kphb Colony, Kukatpally, Hyderabad, Telangana
+    S1 addr NORM: 4 sai plz mig 1366 kphb col kukatpally hyderabad tg
+    M  addr RAW : DOOR NO 4T FLOOR, RANGAREDDY, Andhra Pradesh
+    M  addr NORM: 4t rangareddy ap
+
+  [02] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : International Global Private Limited
+    S1 name NORM: international global
+    M  name RAW : इंटरनेशनल ग्लोबल प्राइवेट लिमिटेड
+    M  name NORM: itrnsnl globl praivt limitd
+    S1 addr RAW : Rajasthan, Udaipur, Room No.77, Sector 14 Behind Rajasthan Hospital, Chungi Naka, J Block, Udaipur
+    S1 addr NORM: rj udaipur room 77 sector 14 rj hospital chungi naka j udaipur
+    M  addr RAW : J Block, Chittaurgarh, राजस्थान
+    M  addr NORM: j chittaurgarh rajsthan
+
+  [03] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Innovative Technologies Private Limited
+    S1 name NORM: innovative technologies
+    M  name RAW : इनोवेटिव टेक्नोलॉजीज प्राइवेट लिमिटेड
+    M  name NORM: inovtiv tknolojij praivt limitd
+    S1 addr RAW : G-6, Kh No. 62/10, Shiv Ram Park, New Delhi, West Delhi, Delhi
+    S1 addr NORM: g 6 kh 62 10 shiv ram park dl west dl dl
+    M  addr RAW : G-6, EAST, दिल्ली
+    M  addr NORM: g 6 east dilli
+
+  [04] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Sree Business
+    S1 name NORM: sree business
+    M  name RAW : श्री बिजनेस
+    M  name NORM: sri bijns
+    S1 addr RAW : Plot No 6, C-4 Sector, Town Center Cidco, Aurangabad, Maharashtra
+    S1 addr NORM: 6 c 4 sector town center cidco aurangabad mh
+    M  addr RAW : NO 6, महाराष्ट्र, CHHATRAPATI SAMBHAJI NAGAR
+    M  addr NORM: 6 mharastr chhatrapati sambhaji ngr
+
+  [05] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Bright Construction Private Limited
+    S1 name NORM: bright construction
+    M  name RAW : ब्राइट कंस्ट्रक्शन Private Limited
+    M  name NORM: brait kstrksn
+    S1 addr RAW : 5, Ram Nivas, 226, Sion Road (East), Mumbai, Maharashtra
+    S1 addr NORM: 5 ram nivas 226 sion rd east mumbai mh
+    M  addr RAW : 5, KINGS CIRCLE, महाराष्ट्र
+    M  addr NORM: 5 kings cir mharastr
+
+  [06] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Bright Construction Private Limited
+    S1 name NORM: bright construction
+    M  name RAW : ब्राइट कंस्ट्रक्शन प्राइवेट लिमिटेड
+    M  name NORM: brait kstrksn praivt limitd
+    S1 addr RAW : 5, Ram Nivas, 226, Sion Road (East), Mumbai, Maharashtra
+    S1 addr NORM: 5 ram nivas 226 sion rd east mumbai mh
+    M  addr RAW : 5, KINGS CIRCLE, महाराष्ट्र
+    M  addr NORM: 5 kings cir mharastr
+
+  [07] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Jay Foundation Private Limited
+    S1 name NORM: jay foundation
+    M  name RAW : जय फाउंडेशन प्राइवेट लिमिटेड
+    M  name NORM: jy phaudsn praivt limitd
+    S1 addr RAW : L-44, Lower Ground Floor, Next Door Mall, Sector -76, Faridabad, Haryana
+    S1 addr NORM: l 44 lower ground next mall sector 76 faridabad hr
+    M  addr RAW : Delhi, L-46, हरियाणा
+    M  addr NORM: dl l 46 hriyana
+
+  [08] script=TAMIL  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Lakshmi Care Private Limited
+    S1 name NORM: lakshmi care
+    M  name RAW : லட்சுமி கேர் பிரைவேட் லிமிடெட்
+    M  name NORM: ltcumi ker piraivet limitet
+    S1 addr RAW : D6, Jains Swarnakamal Apts, No.69, N.S.Ksalai, Arcot Rd, Chennai City Corporation, Chennai, Tamil Nadu
+    S1 addr NORM: d6 jains swarnakamal apts 69 n s ksalai arcot rd chennai city corporation chennai tn
+    M  addr RAW : Dg-6, Saligramam, தமிழ்நாடு
+    M  addr NORM: dg 6 saligramam tmilnatu
+
+  [09] script=TELUGU  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Perfect Properties Private Limited
+    S1 name NORM: perfect properties
+    M  name RAW : పర్‌ఫెక్ట్ ప్రాపర్టీస్ ప్రైవేట్ లిమిటెడ్
+    M  name NORM: prphkt prprts prvt lmtd
+    S1 addr RAW : Plotno823, 824, Flatno-101, Sai Theertha Nilayam, Tirumalagiri, Hyderabad, Telangana
+    S1 addr NORM: plotno823 824 flatno 101 sai theertha nilayam tirumalagiri hyderabad tg
+    M  addr RAW : H.NO 0823, RANGA REDDY, తెలంగాణ
+    M  addr NORM: 823 ranga reddy tlmgn
+
+  [10] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Silver Producer Private Limited
+    S1 name NORM: silver producer
+    M  name RAW : सिल्वर प्रोड्यूसर प्राइवेट लिमिटेड
+    M  name NORM: silvr prodysr praivt limitd
+    S1 addr RAW : Flat Number 4, Ashutosh Apartment, Lane No. 6, Dahanukar Colony, Karve Road, Kothrud, Pune, Maharashtra
+    S1 addr NORM: number 4 ashutosh apartment ln 6 dahanukar col karve rd kothrud pune mh
+    M  addr RAW : FLAT NUMEBR 4, KOLHAPUR, महाराष्ट्र
+    M  addr NORM: numebr 4 kolhapur mharastr
+
+  [11] script=DEVANAGARI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Life Constructions Pvt Ltd
+    S1 name NORM: life constructions
+    M  name RAW : लाइफ कंस्ट्रक्शंस प्रा. लि.
+    M  name NORM: laiph kstrkss pra li
+    S1 addr RAW : 8, Ganga Vihar, Gr. Flr, Marine Drive N. Subhash Marg, Churchgate, Mumbai, Mumbai City, Maharashtra
+    S1 addr NORM: 8 ganga vihar gr flr marine dr n subhash mrg churchgate mumbai mumbai city mh
+    M  addr RAW : 8, Thane, महाराष्ट्र
+    M  addr NORM: 8 thane mharastr
+
+  [12] script=BENGALI  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Gujarat Services Private Limited
+    S1 name NORM: gujarat services
+    M  name RAW : গুজরাট সার্ভিসেস প্রাইভেট লিমিটেড
+    M  name NORM: gjrat sarbhises praibhet
+    S1 addr RAW : 99/5/8, Ballygunje Place, Kolkata, Kolkata, Howrah, West Bengal
+    S1 addr NORM: 99 5 8 ballygunje pl kolkata kolkata howrah wb
+    M  addr RAW : 9-9/5/8, CALCUTTA, পশ্চিমবঙ্গ
+    M  addr NORM: 9 9 5 8 calcutta pscimbng
+
+  [13] script=KANNADA  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Great It Limited
+    S1 name NORM: great it
+    M  name RAW : ಗ್ರೇಟ್ ಐಟಿ ಲಿಮಿಟೆಡ್
+    M  name NORM: gr t ait lmtd
+    S1 addr RAW : 2/4-A, Kensington Road, Bangalore, Karnataka
+    S1 addr NORM: 2 4 a kensington rd bangalore ka
+    M  addr RAW : 2/4-A, BENGALURU, ಕರ್ನಾಟಕ
+    M  addr NORM: 2 4 a bengaluru krnatk
+
+  [14] script=TAMIL  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Arihant Agro Private Limited
+    S1 name NORM: arihant agro
+    M  name RAW : அரிஹந்த் அக்ரோ பிரைவேட் லிமிடெட்
+    M  name NORM: arihnt akrea piraivet limitet
+    S1 addr RAW : Tamil Nadu, S3, Vishnu Castle Apts V.V. Iyer Street, Nandhivaram, Guduvanchery, Kancheepuram, No 41B, Kanchipuram
+    S1 addr NORM: tn s3 vishnu castle apts v v iyer st nandhivaram guduvanchery kancheepuram 41b kanchipuram
+    M  addr RAW : CHENNAI, தமிழ்நாடு, NO 041B
+    M  addr NORM: chennai tmilnatu 041b
+
+  [15] script=KANNADA  name_jacc=0.000  addr_jacc=0.000  name_shared=0
+    S1 name RAW : Sun Investment Private Limited
+    S1 name NORM: sun investment
+    M  name RAW : ಸನ್ ಇನ್ವೆಸ್ಟ್‌ಮೆಂಟ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್
+    M  name NORM: sn invstmmt priv t lmtd
+    S1 addr RAW : No.23A, Vivekananda Nagar, Bommanahalli, Bangalore, Karnataka
+    S1 addr NORM: 23a vivekananda ngr bommanahalli bangalore ka
+    M  addr RAW : BENGALURU, ಕರ್ನಾಟಕ, NO.24A, BENGALURU
+    M  addr NORM: bengaluru krnatk 24a bengaluru
+
+======================================================================
+RECOMMENDATION
+======================================================================
+
+  Pairs with 0 shared tokens on BOTH name AND addr: 5416/551240 = 1.0%
+  Pairs with 0 shared name tokens, >=1 addr token:  455737
+
+  Threshold interpretation:
+    <5%  → anyascii sufficient; orphan-rescue pass handles stragglers
+    5-15% → phonetic augmentation for specific failing scripts
+    >15% → anyascii insufficient as primary; need phonetic scheme
+
+  VERDICT: anyascii is SUFFICIENT (1.0% < 5% unblockable threshold)
+
+Full results: d:\projects\amazon\transliteration_validation.txt

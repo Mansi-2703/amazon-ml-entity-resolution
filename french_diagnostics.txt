@@ -1,0 +1,383 @@
+Loading France from test_source1.tsv...
+  Loaded 50,000 France records.
+Loading France from test_source2.tsv...
+  Loaded 50,000 France records.
+Loading France from test_source3.tsv...
+  Loaded 50,000 France records.
+
+======================================================================
+1. DIACRITIC CHECK ON REAL FRENCH TEXT
+======================================================================
+Sample accented business names and their normalized output:
+  RAW : Maison de Santé Generation
+  NORM: maison de sante generation
+  RAW : École primaire Sainte Pierre
+  NORM: ecole primaire sainte pierre
+  RAW : Établissements Demployeurs SARL
+  NORM: etablissements demployeurs
+  RAW : École primaire de la Sainte
+  NORM: ecole primaire de la sainte
+  RAW : École primaire du Hj
+  NORM: ecole primaire du hj
+  RAW : Collège Saint Jean
+  NORM: college saint jean
+  RAW : Lège-Cap-Ferret Club SASU
+  NORM: lege cap ferret club sasu
+  RAW : Établissements Plaisanciers EURL
+  NORM: etablissements plaisanciers eurl
+  RAW : Maison de Santé de la Coordination
+  NORM: maison de sante de la coordination
+  RAW : Fédération du Lecole
+  NORM: federation du lecole
+
+Synthetic test of French characters: œ æ ç é è ê ë à â î ï ô ù û ü ÿ Œ Æ Ç É È Ê Ë À Â Î Ï Ô Ù Û Ü Ÿ
+  Transliterated: oe ae c e e e e a a i i o u u u y Oe Ae C E E E E A A I I O U U U Y
+  Normalized:     oe ae c e e e e a a i i o u u u y oe ae c e e e e a a i i o u u u y
+
+Accent consistency check on word pairs (accented vs unaccented):
+  'Café de la Gare' vs 'Cafe de la Gare':
+    n1='cafe de la gare'  n2='cafe de la gare'  --> Match=True
+  'Société Générale' vs 'Societe Generale':
+    n1='societe generale'  n2='societe generale'  --> Match=True
+  'Hôtel & Résidence' vs 'Hotel & Residence':
+    n1='hotel residence'  n2='hotel residence'  --> Match=True
+  'Boucherie François' vs 'Boucherie Francois':
+    n1='boucherie francois'  n2='boucherie francois'  --> Match=True
+  'Cœur de Ville' vs 'Coeur de Ville':
+    n1='coeur de ville'  n2='coeur de ville'  --> Match=True
+  'Électricité de France' vs 'Electricite de France':
+    n1='electricite de france'  n2='electricite de france'  --> Match=True
+  'Médiathèque Municipale' vs 'Mediatheque Municipale':
+    n1='mediatheque municipale'  n2='mediatheque municipale'  --> Match=True
+
+======================================================================
+2. 50 REAL FRENCH BUSINESS NAMES (SAMPLE FROM S1, S2, S3)
+======================================================================
+
+--- S1 French Names ---
+  Roues Comite SAS
+  École maternelle Bobigny
+  EHPAD de la Marie
+  Aides Amicale SARL
+  Brillac Primaire SARL
+  Association des Bureau
+  Peniche Atelier SCI
+  Commercial Federation SAS
+  Clinique Paul
+  Lege Compagnie (France) SAS
+  Monnet Club SARL
+  Demain Club SAS
+  Maison de Santé Sainte Marie
+  Amicale des Publique
+  Dunkerque Amicale EI
+
+--- S2 French Names ---
+  rivierecomitesas.com
+  Sociale Centre
+  Cancer Aiacciu Parents
+  Ccrbu de  Il
+  Club des-Retraites
+  UNION DU AIM INTERNATIONAL SASU
+  CLUB SAINTE  AM
+  Jardinage Heart EURL France
+  QCW Fetes SAS
+  Tourcoing EI & Associés
+  Établissements Financement-SARL
+  Pessac Comite  International
+  Lille Fëtes
+  Graines Maison
+  Porte Industrie (France) SAS
+
+--- S3 French Names ---
+  Ehpad Dàme EURL
+  Semence Sante EURL
+  Habitants France
+  XMO Ecole International SARL
+  École màternelle Sim
+  Insertion (France) Agricole  SAS
+  Bordeaux Societe
+  Maison de Santé de Socio
+  Locataires-Clncif SARL
+  SAS Animation & Frères Holding
+  Financement Cedngr
+  VV Ecole (EURL)
+  ÉTABLISSEMENTS ARCHIPEL DISTRIBUTION
+  Roubaix Club (France)
+  Haiti  Mer Fetes SAS
+
+Most common ending words/phrases in French names (top 35):
+  SARL                     : 30,194
+  SAS                      : 21,251
+  EURL                     : 7,981
+  SA                       : 6,466
+  SASU                     : 5,733
+  SCI                      : 4,876
+  COM                      : 3,488
+  FRANCE                   : 2,993
+  CLUB                     : 2,145
+  CLUB SARL                : 2,072
+  GROUPE                   : 1,891
+  FILS                     : 1,872
+  S                        : 1,774
+  A S                      : 1,773
+  FRANCE SARL              : 1,709
+  EI                       : 1,612
+  DÉVELOPPEMENT            : 1,549
+  L                        : 1,442
+  R L                      : 1,410
+  CLUB SAS                 : 1,395
+  ECOLE                    : 1,238
+  ECOLE SARL               : 1,211
+  FRANCE SAS               : 1,196
+  AMICALE                  : 1,189
+  CIE                      : 1,179
+  COMITE                   : 1,162
+  AMICALE SARL             : 1,149
+  COMITE SARL              : 1,083
+  INTERNATIONAL            : 992
+  SPORTIVE                 : 962
+  DISTRIBUTION             : 961
+  HOLDING                  : 958
+  PARTICIPATIONS           : 924
+  SPORTIVE SARL            : 876
+  ECOLE SAS                : 829
+
+======================================================================
+3. 50 REAL FRENCH ADDRESSES (SAMPLE FROM S1, S2, S3)
+======================================================================
+
+--- S1 French Addresses ---
+  61 Rue Pierre Fleury, Pornic, Pays de la Loire
+  1 BIS Rue Desruelles, Lille, Hauts-de-France
+  87 Rue Gambetta, Dunkerque, Hauts-de-France
+  76 Rue Colbert, Lille, Hauts-de-France
+  63 Rue des Ayres, Bordeaux, Nouvelle-Aquitaine
+  57 rue du gal chanzy, Calais, Hauts-de-France
+  21 Bis Rue du Fresche Blanc, Nantes, Pays de la Loire
+  7 Allée Paul Claudel, Saint-Herblain, Pays de la Loire
+  9 Place Tourny, Bordeaux, Nouvelle-Aquitaine
+  15 Rue Jean Sylvain Bailly, Saint-Nazaire, Pays de la Loire
+  22 Rue de Coulongé, Nantes, Pays de la Loire
+  4 Rue de l’Oustalet, La Teste-de-Buch, Nouvelle-Aquitaine
+  135 Rue de l'Épeule, Roubaix, Hauts-de-France
+  7 Avenue des Corallines, La Baule-Escoublac, Pays de la Loire
+  13 Rue du Général de Gaulle, Dunkerque, Hauts-de-France
+
+--- S2 French Addresses ---
+  (24) RUE ANATOLE FRANCE, LILLE, Nord
+  7 RUE DE LA CATERIE, NANTES
+  BORDEAUX, Nouvelle-Aquitaine, RUE PUYSEGUR
+  121 RUE DES STATIONS, APPARTEMENT 10, LILLE, Hauts-de-France
+  39 R. DU CHEVALIER ROLAND, ROUBAIX, Nord
+  36 RUE DE STRASBOURG, MAIRIE, NANTES, Pays de la Loire
+  24 BOULEVARD CURIE, CALAIS, Hauts-de-France
+  NO. 5 R MEXICO, Lille, Hauts-de-France
+  N° 8 R. EDMUND HILLARY, NANTES, Loire-Atlantique
+  12 RUE CHARLES DE FOUCAULT, LILLE, Nord
+  Hauts-de-France, LILLE, N° 43 RUE DES FORGERONS
+  22 RUE DE ROUBAIX, Nantes, Loire-Atlantique
+  #25 R WILLIAM, PESSAC, Nouvelle-Aquitaine
+  NO 12 RUE DU CONTOUR DU BOUT D'AVAL, DUNKERQUE
+  1 PL. LAINE, BORDEAUX, Nouvelle-Aquitaine
+
+--- S3 French Addresses ---
+  5 R. Laplace, Lille
+  27 Rue Jean Bart, Lille
+  112 Rue Frere, Bordeaux
+  Lille, 157 Blvd Victor Hogo
+  104 Rue du Docteur Huart, Lille, Hauts-de-France
+  78 Rte De Cap Ferret Canon, Lège-cap-ferret, Nouvelle-Aquitaine
+  0013 Imp Bouscatire, Bordeaux, Nouvelle-Aquitaine
+  Nouvelle-Aquitaine, 14bis Allee Challier, Pessac
+  63 R. Malbec, Bordeaux
+  # 9 All. De Diane, La Baule-escoublac, Pays de la Loire
+  Loire-Atlantique, Pornic, 62 Avenue Des Embruns
+  2 R. Du Dr. Schweitzer, Lille
+  No 89 Rue Alsace-lorraine, Dunkerque, Hauts-de-France
+  34 R Fernand Marin, Bordeaux, Gironde
+  10 Rue Mortet, Calais, Pas-de-Calais
+
+Address patterns across 146,936 French addresses:
+  Contains 5-digit postal code: 684 (0.5%)
+  Contains 'CEDEX':             23 (0.0%)
+  Contains 'BP' (Boite Postale): 88 (0.1%)
+  Contains 'CS':                41 (0.0%)
+
+Street keyword presence in French addresses:
+  RUE            : 71,708 (48.8%)
+  AVENUE         : 12,564 (8.6%)
+  BOULEVARD      : 3,944 (2.7%)
+  BD             : 2,024 (1.4%)
+  CHEMIN         : 1,491 (1.0%)
+  ALLÉE          : 3,791 (2.6%)
+  ALLEE          : 1,461 (1.0%)
+  ROUTE          : 1,833 (1.2%)
+  RTE            : 868 (0.6%)
+  PLACE          : 1,369 (0.9%)
+  PL             : 982 (0.7%)
+  QUAI           : 798 (0.5%)
+  IMPASSE        : 2,051 (1.4%)
+  PASSAGE        : 325 (0.2%)
+  COURS          : 900 (0.6%)
+  SQUARE         : 461 (0.3%)
+  ZI             : 3 (0.0%)
+  ZA             : 4 (0.0%)
+  ZAC            : 0 (0.0%)
+  ZONE           : 9 (0.0%)
+
+======================================================================
+4. 15 CANDIDATE FRENCH PAIRS (SHARED ADDRESS TOKENS)
+======================================================================
+Found 15 French candidate pairs:
+
+[Pair 01]
+  S1 name raw : To Amicale EURL
+  S2 name raw : Amicale de Tour SCI
+  S1 addr raw : 1 rue Jodelle, 44600 ST NAZAIRE, Saint-Nazaire, Pays de la Loire
+  S2 addr raw : 89 R DE TRIGNAC, 44600 ST NAZAIRE, SAINT-NAZAIRE
+  S1 name norm: to amicale eurl
+  S2 name norm: amicale de tour sci
+  S1 addr norm: 1 rue jodelle 44600 st nazaire saint nazaire pdl
+  S2 addr norm: 89 r de trignac 44600 st nazaire saint nazaire
+
+[Pair 02]
+  S1 name raw : Aerienne Vallees Institut SARL
+  S2 name raw : Calais Comite SARL
+  S1 addr raw : 62100, Hauts-de-France, 135 RUE Edgar Degas, Calais
+  S2 addr raw : 372 R D'ORLÉANSVILLE, 62100 CALAIS, CALAIS, Hauts-de-France
+  S1 name norm: aerienne vallees institut
+  S2 name norm: calais comite
+  S1 addr norm: 62100 hauts de france 135 rue edgar degas calais
+  S2 addr norm: 372 r d orleansville 62100 calais calais hauts de france
+
+[Pair 03]
+  S1 name raw : Profession & Frères SARL
+  S2 name raw : profession & frères sarl
+  S1 addr raw : 198 rue du Bois, 59800 LILLE, Lille, Hauts-de-France
+  S2 addr raw : 198 R DU BOIS, 59800 LILLE, LILLE, Nord
+  S1 name norm: profession freres
+  S2 name norm: profession freres
+  S1 addr norm: 198 rue du bois 59800 lille lille hauts de france
+  S2 addr norm: 198 r du bois 59800 lille lille nord
+
+[Pair 04]
+  S1 name raw : BR Collège SARL
+  S2 name raw : Chat Pharmacie (France) SARL
+  S1 addr raw : 4 rue Marc Sangnier, 33000 BORDEAUX, Bordeaux, Nouvelle-Aquitaine
+  S2 addr raw : 8 RUE LAFAYETME, 33000, BORDEAUX
+  S1 name norm: br college
+  S2 name norm: chat pharmacie france
+  S1 addr norm: 4 rue marc sangnier 33000 bordeaux bordeaux nouvelle aquitaine
+  S2 addr norm: 8 rue lafayetme 33000 bordeaux
+
+[Pair 05]
+  S1 name raw : Pro Loisirs (France) SARL
+  S2 name raw : Chat Pharmacie (France) SARL
+  S1 addr raw : 7 rue Dieu, 33000 BORDEAUX, Nouvelle-Aquitaine, Bordeaux
+  S2 addr raw : 8 RUE LAFAYETME, 33000, BORDEAUX
+  S1 name norm: pro loisirs france
+  S2 name norm: chat pharmacie france
+  S1 addr norm: 7 rue dieu 33000 bordeaux nouvelle aquitaine bordeaux
+  S2 addr norm: 8 rue lafayetme 33000 bordeaux
+
+[Pair 06]
+  S1 name raw : GPD Comite SA
+  S2 name raw : SA GPD Çomite
+  S1 addr raw : 79 Bis RUE Colbert, 59000, Lille, Hauts-de-France
+  S2 addr raw : 79B RUE COLBERT, 59000, Lille, Hauts-de-France
+  S1 name norm: gpd comite
+  S2 name norm: sa gpd comite
+  S1 addr norm: 79 bis rue colbert 59000 lille hauts de france
+  S2 addr norm: 79b rue colbert 59000 lille hauts de france
+
+[Pair 07]
+  S1 name raw : Deleves Transport SARL
+  S2 name raw : Aines SARL  Groupement
+  S1 addr raw : 18 rue Pierre Yvernogeau, 44300 NANTES, Nantes, Pays de la Loire
+  S2 addr raw : 92 BD DE DOULON, 44300, NANTES
+  S1 name norm: deleves transport
+  S2 name norm: aines sarl groupement
+  S1 addr norm: 18 rue pierre yvernogeau 44300 nantes nantes pdl
+  S2 addr norm: 92 bd de doulon 44300 nantes
+
+[Pair 08]
+  S1 name raw : Sand Deleves College SARL
+  S2 name raw : And SARL Service
+  S1 addr raw : 8 rue du Roitelet, 59200 TOURCOING, Tourcoing, Hauts-de-France
+  S2 addr raw : NO. 70 CHAU1 GALILEE, 59200 TOURCOING, TOURCOING, Hauts-de-France
+  S1 name norm: sand deleves college
+  S2 name norm: and sarl service
+  S1 addr norm: 8 rue du roitelet 59200 tourcoing tourcoing hauts de france
+  S2 addr norm: 70 chau1 galilee 59200 tourcoing tourcoing hauts de france
+
+[Pair 09]
+  S1 name raw : Lille Club SAS
+  S2 name raw : PERRINE COLLECF  SAS
+  S1 addr raw : 3 rue Victor Duruy, 59000 LILLE, Lille, Hauts-de-France
+  S2 addr raw : LILLE, 25 BIS RUE COLBERT, 59000 LILLE
+  S1 name norm: lille club
+  S2 name norm: perrine collecf
+  S1 addr norm: 3 rue victor duruy 59000 lille lille hauts de france
+  S2 addr norm: lille 25 bis rue colbert 59000 lille
+
+[Pair 10]
+  S1 name raw : Tulipe Ecole EURL
+  S2 name raw : SARL 82 Dêfense Ecole
+  S1 addr raw : Rue Anita Conti, Pays de la Loire, Saint-Nazaire, 44600 ST NAZAIRE
+  S2 addr raw : 34 RUE GUY DE MAUPASSANT, 44600 ST NAZAIRE, Saint-Nazaire, Pays de la Loire
+  S1 name norm: tulipe ecole eurl
+  S2 name norm: sarl 82 defense ecole
+  S1 addr norm: rue anita conti pdl saint nazaire 44600 st nazaire
+  S2 addr norm: 34 rue guy de maupassant 44600 st nazaire saint nazaire pdl
+
+[Pair 11]
+  S1 name raw : Crealab Amicale SARL
+  S2 name raw : Fédération de  Anciennes SARL
+  S1 addr raw : Lille, 37 b oulevard de Belfort, 59000 LILLE, Hauts-de-France
+  S2 addr raw : 8 R. DE L'ESCAUT, 59000 LILLE, LILLE, Nord
+  S1 name norm: crealab amicale
+  S2 name norm: federation de anciennes
+  S1 addr norm: lille 37 b oulevard de belfort 59000 lille hauts de france
+  S2 addr norm: 8 r de l escaut 59000 lille lille nord
+
+[Pair 12]
+  S1 name raw : Entente Sportif SAS
+  S2 name raw : Maison Çhambre SAS
+  S1 addr raw : 1 RUE Barrau, Appartement 10 Etage 2 33000, Bordeaux, Nouvelle-Aquitaine
+  S2 addr raw : N°2 RUE DES AUGUSTINS, 33000 BORDEAUX, BORDEAUX, Gironde
+  S1 name norm: entente sportif
+  S2 name norm: maison chambre
+  S1 addr norm: 1 rue barrau appartement 10 etage 2 33000 bordeaux nouvelle aquitaine
+  S2 addr norm: ndeg2 rue des augustins 33000 bordeaux bordeaux gironde
+
+[Pair 13]
+  S1 name raw : Vie Federation SARL
+  S2 name raw : Vie Fedrdstin SARL
+  S1 addr raw : 24 AV Gustave Delory, CS 50411, Roubaix, Hauts-de-France
+  S2 addr raw : 24 AV GUSTAVE DELORY, CS 50411, ROUBAIX, Nord
+  S1 name norm: vie federation
+  S2 name norm: vie fedrdstin
+  S1 addr norm: 24 av gustave delory cs 50411 roubaix hauts de france
+  S2 addr norm: 24 av gustave delory cs 50411 roubaix nord
+
+[Pair 14]
+  S1 name raw : Deducation Centre SAS
+  S2 name raw : Corps Sante SAS
+  S1 addr raw : 10 rue Harouys, 44000 NANTES, Nantes, Pays de la Loire
+  S2 addr raw : NO 18 AVENUE BASCHR, 44000 NANTES, NANTES
+  S1 name norm: deducation centre
+  S2 name norm: corps sante
+  S1 addr norm: 10 rue harouys 44000 nantes nantes pdl
+  S2 addr norm: 18 ave baschr 44000 nantes nantes
+
+[Pair 15]
+  S1 name raw : Collège Roses
+  S2 name raw : Comite Roses SARL
+  S1 addr raw : 27 RUE du Ballet, BP 60105, Nantes, Pays de la Loire
+  S2 addr raw : 29 RUE DU BALLET, BP 60105, NANTES
+  S1 name norm: college roses
+  S2 name norm: comite roses
+  S1 addr norm: 27 rue du ballet bp 60105 nantes pdl
+  S2 addr norm: 29 rue du ballet bp 60105 nantes
+
+Diagnostics written to d:\projects\amazon\french_diagnostics.txt

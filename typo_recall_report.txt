@@ -1,0 +1,207 @@
+========================================================================
+PURE-TYPO RECALL GAP ANALYSIS
+========================================================================
+
+[1] Loading validation split ...
+  Validation S1 entities: 441,361
+
+[2] Loading ground truth ...
+  Val S1 entities with >=1 match: 416,712
+  Unique target IDs needed: 1,528,016
+
+[3] Loading S1 validation records ...
+  Loaded 441,361 S1 val records
+
+[4] Loading target (S2+S3) records for match targets ...
+  Loaded 739,586 target records from S2
+  Loaded 788,430 target records from S3
+  Total targets loaded: 1,528,016 / 1,528,016
+
+[5] Identifying pure-typo pairs ...
+  Cross-script pairs (skipped): 109,555
+  Suffix-only pairs (excluded from typo bucket): 587,544
+  Edit distance distribution (same-script, non-suffix-identical):
+      ed=0: 587,544 pairs
+      ed=1: 76,343 pairs
+      ed=2: 54,269 pairs
+      ed>=3: 700,305 pairs
+
+  PURE TYPO pairs (ed<=2, same-script, non-identical after suffix strip): 130,612
+    Of which address-corroborated: 122,908
+    Of which NOT address-corroborated: 7,704
+
+[6] Building mini blocking index for target records ...
+  Determining target countries from source files ...
+  Target dataframe: 1,528,016 records
+  Mini index built.
+
+[7] Querying typo-pair S1 entities ...
+
+[8] Computing recall on typo pairs ...
+
+========================================================================
+RESULTS: PURE-TYPO RECALL
+========================================================================
+  Total pure-typo pairs        : 130,612
+  Overall recall               : 94,300 / 130,612 (72.20%)
+
+  Address-CORROBORATED slice   : 93,319 / 122,908 (75.93%)
+  Address-UNCORROBORATED slice : 981 / 7,704 (12.73%)
+
+--- SURPRISING: Missed typo pairs WHERE address DID corroborate ---
+[01] S1=S1-531928114 | Target=S3-110146591
+     S1 Name:     'Tri-State Guild'
+     Target Name: 'tristateguild.com'
+     S1 Addr:     '2915 Dares Beach Road, Prince Frederick, MD'
+     Target Addr: '915 Dares Beach Rd, PMB 6098, Prince Frederick CDP, Maryland'
+
+[02] S1=S1-73533983 | Target=S3-785488951
+     S1 Name:     'Orthopedic Specialists Inc'
+     Target Name: 'Orth0pedic Specialists (Inc)'
+     S1 Addr:     '2701 France Avenue, Minneapolis, MN'
+     Target Addr: 'France Avenue, Minneapolis, Minnesota'
+
+[03] S1=S1-6536886 | Target=S3-492584127
+     S1 Name:     'Moon Analytics Private Limited'
+     Target Name: 'moonanalytics.com'
+     S1 Addr:     'W/O Sh.Sanjai Kothar Pro., Samriddhi Shory Noda, Ajmer, Rajasthan'
+     Target Addr: 'राजस्थान, Ajmer, Samriddhi Shory Noda, Ajmer, W/o Sh.sanjai Kothar Pro.'
+
+[04] S1=S1-103117232 | Target=S3-396890083
+     S1 Name:     'Holguin Appliance, Inc.'
+     Target Name: 'H0lguin Appliance,'
+     S1 Addr:     '1316 Dellwood Avenue, Baltimore, MD'
+     Target Addr: 'Dellwood Avenue, Baltimore, Maryland'
+
+[05] S1=S1-879043765 | Target=S2-570193226
+     S1 Name:     'Avantika Solar Private Limited'
+     Target Name: 'Avantika 5olar Private Limited'
+     S1 Addr:     '43, Anand Deep Building City Centre, Gwalior, Madhya Pradesh'
+     Target Addr: 'मध्य प्रदेश, ##43, ANAND DEEP BUILDING CITY CENTRE, GWALIOR'
+
+[06] S1=S1-992497458 | Target=S3-686954906
+     S1 Name:     'Prime Staffing Worldwide'
+     Target Name: 'primestaffingworldwide.com'
+     S1 Addr:     '475 Front Street, El Paso, IL'
+     Target Addr: 'El Paso, 475 Front St, Illinois'
+
+[07] S1=S1-936929111 | Target=S3-760387607
+     S1 Name:     'Dickinson Focus, Corp'
+     Target Name: 'Dickinson Fscu, (Corp)'
+     S1 Addr:     'Greenwood, IN, 5632 Skylark Drive'
+     Target Addr: 'Skylark Drive, Greenwood, Indiana'
+
+[08] S1=S1-846021491 | Target=S3-189038428
+     S1 Name:     'Om Finance Limited'
+     Target Name: 'Om Fiananre Limited'
+     S1 Addr:     '1046/22, Thiruvalluvar Streetkaladipet Madras, Kaladipet, Madras, Chennai, Tamil Nadu'
+     Target Addr: '1046/22, Madras, Chennai, தமிழ்நாடு'
+
+[09] S1=S1-306934395 | Target=S3-656700332
+     S1 Name:     'Phulwari Foundation Private Limited'
+     Target Name: 'Phu1wari Fóundation Private Limited'
+     S1 Addr:     'Sri. Subhash Kr.Sinha., S/O Uma Shankar Pd, Sahyogi Marg, Ex.Road, Kadamkuan, Phulwari, Patna, Bihar'
+     Target Addr: 'Door No 927 Sri. Subhash Kr.sinha., S/o Uma Shankar Pd, Sahyogi Marg, Ex.road, Kadamkuan, Patna, Phulwari, BR'
+
+[10] S1=S1-534715135 | Target=S3-219919955
+     S1 Name:     'Fletcher Delta Vaneck, LLC'
+     Target Name: 'fletcherdeltavaneck.com'
+     S1 Addr:     '2520 Bear Creek Lane, Phoenix, AZ'
+     Target Addr: 'Arizona, Phoenix, 252 Bear Creek Ln'
+
+
+--- Missed typo pairs where address did NOT corroborate (gap candidates) ---
+  Total uncorroborated misses: 6,723
+[01] S1=S1-73266388 | Target=S3-448329295 | edit_dist=2
+     S1 Name:     'Trujillo Sony LLC'
+     Target Name: 'Trujillo Soyn LLC'
+     S1 Addr:     '113 Cimarron Trail, Irving, Unit 2106, TX'
+     Target Addr: ''
+
+[02] S1=S1-722701300 | Target=S3-946525856 | edit_dist=2
+     S1 Name:     'Prananth Chemicals Limited'
+     Target Name: 'Prananth  Chemicmns Limited'
+     S1 Addr:     'Ed-2C Pitampura, Madhuban Chownk, New Delhi, North West, Delhi'
+     Target Addr: ''
+
+[03] S1=S1-674726407 | Target=S3-890244770 | edit_dist=1
+     S1 Name:     'Metro Aviation Inc'
+     Target Name: 'Metr0  Aviation Inc'
+     S1 Addr:     '3854 109th Street, Chicago, IL'
+     Target Addr: '3854 109th Street, Chiicago, Illinois'
+
+[04] S1=S1-388041707 | Target=S3-858977968 | edit_dist=2
+     S1 Name:     'ED Horizon Arts LLC'
+     Target Name: 'ED Hrtzon Arts LLC'
+     S1 Addr:     'Dundalk, MD, 1616 Gray Haven Court'
+     Target Addr: ''
+
+[05] S1=S1-958297307 | Target=S2-753140238 | edit_dist=1
+     S1 Name:     'Hearn Jersey, LLC'
+     Target Name: 'Hearn Jerfey, LLC'
+     S1 Addr:     'Fairfax County, Unit STE 103, VA, 7336 Route 29'
+     Target Addr: '7336 ROOTE 29, FALLS CHURCH, VA'
+
+[06] S1=S1-624061781 | Target=S3-55941776 | edit_dist=1
+     S1 Name:     'Modern Producer Pvt Ltd'
+     Target Name: '@modernproducer'
+     S1 Addr:     'Shop No. 5 South Ganesh Nagar, H.No. 65, Delhi, East Delhi, Delhi'
+     Target Addr: 'No 65, Delhi, East Delhi, दिल्ली'
+
+[07] S1=S1-565859467 | Target=S3-360448682 | edit_dist=1
+     S1 Name:     'Route 6 Auto Body LLC'
+     Target Name: 'Route 6 Aeuto Body-LLC'
+     S1 Addr:     '214-11 18 Avenue, Bayside, NY'
+     Target Addr: ''
+
+[08] S1=S1-255643554 | Target=S3-336927608 | edit_dist=1
+     S1 Name:     'Mana Trading Private Limited'
+     Target Name: 'manatrading.com'
+     S1 Addr:     'S.No71, H.No2, Mokashi Pada, Opp. Khot Bunglow, Thane, Maharashtra'
+     Target Addr: 'महाराष्ट्र, S.no71, Navi Mumbai Region'
+
+[09] S1=S1-536963902 | Target=S3-547683295 | edit_dist=2
+     S1 Name:     'Optimal Silver Applied'
+     Target Name: 'Optimal Sievr Applied'
+     S1 Addr:     '2310 Broad Avenue, Unit APT 3, Altoona, PA'
+     Target Addr: ''
+
+[10] S1=S1-885291518 | Target=S3-56999910 | edit_dist=2
+     S1 Name:     'New Delhi Store Private Limited'
+     Target Name: 'New Deeclhi Store Private Limited'
+     S1 Addr:     '417, 418, 419, Ansal Tower 38 Nehru Place, New Delhi, South Delhi, Delhi'
+     Target Addr: '417, New Delhi, DL'
+
+[11] S1=S1-544379692 | Target=S2-868596316 | edit_dist=2
+     S1 Name:     'Olanon Alussa'
+     Target Name: 'Olanon Aligsa'
+     S1 Addr:     'IL, Northbrook, 3724 Bernay Drive'
+     Target Addr: ''
+
+[12] S1=S1-360911062 | Target=S2-178336004 | edit_dist=2
+     S1 Name:     'Bright Book Store'
+     Target Name: 'Bright Bk Store'
+     S1 Addr:     'MT, 3004 Leeann Boulevard, Billings'
+     Target Addr: ''
+
+[13] S1=S1-652238226 | Target=S2-118055572 | edit_dist=2
+     S1 Name:     'Transworld Jeevan Pvt Ltd'
+     Target Name: 'Transworld Jeegafn Pvt Ltd'
+     S1 Addr:     'Flat No.502, Bldg-59 E-Wing, New Mhada Ganesh Nagar, Nr Atharva College, Malad W, Maharashtra, Mumbai, Mumbai City'
+     Target Addr: ''
+
+[14] S1=S1-262357559 | Target=S2-414556856 | edit_dist=1
+     S1 Name:     'Schindler's Capital Produce'
+     Target Name: 'Schindler's Cáprtal Produce'
+     S1 Addr:     '1036 10th St, Nevada, IA'
+     Target Addr: '10TH ST, NEVADA, IA'
+
+[15] S1=S1-211499274 | Target=S3-133596186 | edit_dist=1
+     S1 Name:     'Minne Raucci Fresh Consumer'
+     Target Name: 'Minne Rauchi-Fresh Consumer'
+     S1 Addr:     '6606 Linwood Road, Pemberville, OH'
+     Target Addr: '6606 Liwood Rd, Pembervville, Ohio'
+
+========================================================================
+  Total runtime: 328.6s
+========================================================================
