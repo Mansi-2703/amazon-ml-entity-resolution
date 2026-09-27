@@ -9,3 +9,4 @@ dataset/
 
 # Windows junk
 *.lnk
+.venv/
